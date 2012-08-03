@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="swt">
+    <CLASSES>
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.osgi_3.7.1.R37x_v20110808-1106.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.core.commands_3.6.0.I20110111-0800.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.equinox.common_3.6.0.v20110523.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.equinox.registry_3.5.101.R37x_v20110810-1611.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.core.runtime_3.7.0.v20110110.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.text_3.5.101.r371_v20110810-0800.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.7.1.v3738a.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.jface_3.7.0.I20110522-1430.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.jface.text_3.7.1.r371_v20110825-0800.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.ui.workbench_3.7.0.I20110519-0100.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/com.ibm.icu_4.4.2.v20110208.jar!/" />
+      <root url="jar://C:/Program Files/eclipse/plugins/org.eclipse.ui.forms_3.5.100.v20110425.jar!/" />
+      <root url="jar://$PROJECT_DIR$/swing2swt.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/swing2swt.jar!/" />
+    </SOURCES>
+  </library>
+</component>
