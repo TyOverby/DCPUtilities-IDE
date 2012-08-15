@@ -1,15 +1,17 @@
 package com.prealpha.dcputil.ide;
 
+import com.prealpha.dcputil.ide.editor.EditorTab;
 import com.prealpha.dcputil.ide.swt.SWTResourceManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
-import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.*;
 import swing2swt.layout.BorderLayout;
+
+import java.io.File;
 
 
 public class EntryPoint {
@@ -35,7 +37,7 @@ public class EntryPoint {
 	}
 
 	/**
-	 * Open the window.
+	 * OpenFile the window.
 	 */
 	public void open() {
 		display = Display.getDefault();
@@ -69,7 +71,7 @@ public class EntryPoint {
 		ToolBar toolBar = new ToolBar(editorPanel, SWT.FLAT | SWT.RIGHT);
 		toolBar.setLayoutData(BorderLayout.NORTH);
 		
-		CTabFolder tabFolder = new CTabFolder(editorPanel, SWT.BORDER | SWT.CLOSE | SWT.FLAT);
+		final CTabFolder tabFolder = new CTabFolder(editorPanel, SWT.BORDER | SWT.CLOSE | SWT.FLAT);
 		tabFolder.setSelectionBackground(SWTResourceManager.getColor(SWT.COLOR_CYAN));
 		tabFolder.setTabHeight(25);
 		tabFolder.setLayoutData(BorderLayout.CENTER);
@@ -78,13 +80,8 @@ public class EntryPoint {
 		tabFolder.setSimple(false);
 		
 		//EditorTab editorTab = new EditorTab(null,tabFolder, SWT.NONE);
-		
-		CTabItem tabItem = new CTabItem(tabFolder, SWT.NONE);
-		tabItem.setText("New Item");
-		
-		Button btnNewButton = new Button(tabFolder, SWT.NONE);
-		tabItem.setControl(btnNewButton);
-		btnNewButton.setText("New Button");
+
+        EditorTab tabItem = new EditorTab(tabFolder, SWT.NONE, new File("lolol.txt"));
 		
 		final SashForm infoSash = new SashForm(mainSash, SWT.VERTICAL);
 		
@@ -135,6 +132,41 @@ public class EntryPoint {
 		
 		MenuItem mntmNewProject = new MenuItem(menu_1, SWT.NONE);
 		mntmNewProject.setText("New Project");
+		
+		MenuItem mntmOpenProject = new MenuItem(menu_1, SWT.NONE);
+		mntmOpenProject.setText("Open Project");
+		
+		new MenuItem(menu_1, SWT.SEPARATOR);
+		
+		MenuItem mntmNewFile = new MenuItem(menu_1, SWT.NONE);
+		mntmNewFile.setText("New File");
+		
+		MenuItem mntmOpenFile = new MenuItem(menu_1, SWT.NONE);
+		mntmOpenFile.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                FileDialog fd = new FileDialog(Display.getCurrent().getActiveShell(), SWT.OPEN);
+                fd.setText("Open File");
+                String[] filterExt = { "*.dcpu16", "*.dcpu" };
+                fd.setFilterExtensions(filterExt);
+
+                String selected = fd.open();
+
+                if(selected!=null){
+                    File opened = new File(selected);
+                    EditorTab tabItem = new EditorTab(tabFolder, SWT.NONE, opened);
+                }
+            }
+        });
+		mntmOpenFile.setText("Open File");
+		
+		MenuItem mntmSave = new MenuItem(menu_1, SWT.NONE);
+		mntmSave.setText("Save");
+		
+		new MenuItem(menu_1, SWT.SEPARATOR);
+		
+		MenuItem mntmExit = new MenuItem(menu_1, SWT.NONE);
+		mntmExit.setText("Exit");
 		
 		MenuItem mntmEdit = new MenuItem(menu, SWT.CASCADE);
 		mntmEdit.setText("Edit");

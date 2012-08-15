@@ -30,7 +30,7 @@ public class EditorTest {
     }
 
     /**
-     * Open the window.
+     * OpenFile the window.
      */
     public void open() {
         display = Display.getDefault();
@@ -53,6 +53,6 @@ public class EditorTest {
         shell.setText("DCPUtilities IDE");
         shell.setLayout(new BorderLayout(0, 0));
 
-        editor = new Editor(shell, SWT.NONE);
+        editor = new Editor(shell, SWT.NONE, null);
     }
 }
